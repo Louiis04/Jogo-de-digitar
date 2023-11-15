@@ -1,111 +1,72 @@
 <script>
-  import { onMount } from "svelte";
 
-  const sentences = [
-    "The quick brown fox jumps over the lazy dog",
-    "The cat sat on the mat",
-    "I have a pen",
-    "I have an apple",
-    "I am going to school",
-    "I like to eat pizza",
-    "I am a student at the university",
-    "I am going to school to learn",
-    "I like to play games with friends",
-    "A picture is worth a thousand words",
-    "The universe is vast and mysterious",
-    "The human mind is a powerful tool",
-    "The future is full of possibilities",
-    "The future is full of possibilities",
-    "Peace is the goal of all humanity",
-    "Hope is the light that guides us through the darkness",
-    "The world is a better place because of you",
-    "A picture is worth a thousand words",
-    "The road to hell is paved with good intentions",
-    "The pen is mightier than the sword",
-    "The only thing that is constant is change",
-    "The only way to do great work is to love what you do",
-    "The journey of a thousand miles begins with a single step."
-  ];
-
-  let currentSentence = 0;
-  let typedText = "";
-  let result = "";
-  let wpm = 0;
-  let timer = 90; // Tempo em segundos
-  let gameRunning = false;
-
-  onMount(() => {
-    setNewSentence();
-
-    const timerInterval = setInterval(() => {
-      timer--;
-      if (timer <= 0) {
-        clearInterval(timerInterval);
-        endGame(wpm);
-      }
-    }, 1000);
-  });
-
-  function randomizeSentence() {
-    let randomIndex;
-    do {
-      randomIndex = Math.floor(Math.random() * sentences.length);
-    } while (randomIndex === currentSentence);
-    return randomIndex;
-  }
-
-  function setNewSentence() {
-    currentSentence = randomizeSentence();
-    typedText = "";
-    result = "";
-    wpm = 0;
-  }
-
-  function startGame() {
-    if (!gameRunning) {
-      setNewSentence();
-      timer = 90;
-      gameRunning = true;
-    }
-  }
-
-  function endGame(wpm) {
-  if (gameRunning) {
-    gameRunning = false;
-    typedText = "";
-    result = `Congratulations, your WPM is: ${wpm}`;
-    timer = 90;
-  }
-}
-
-
-function checkInput() {
-  if (gameRunning) {
-    const characters = typedText.replace(/\s/g, "").length; // Conta o número de caracteres
-    const elapsedTime = (90 - timer) / 60;
-    wpm = Math.round((characters / 5) / elapsedTime); // Calcula o WPM corretamente
-
-    if (sentences[currentSentence] === typedText) {
-      currentSentence++;
-      if (currentSentence < sentences.length) {
-        setNewSentence();
-      } else {
-        endGame(wpm);
-      }
-    }
-  }
-}
 </script>
 
 <style>
-  /* Adicionar o css */
-</style>
+  @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
+  
+  
+  :global(html) {
+    margin: 0%;
+    padding: 0px;
+    overflow: hidden;
+  }
+  
+  .button {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+    padding: 20px;
+  }
+  
+  .btn-back{
+    margin-top: 50px;
+    margin-left: 20px;
+  
+  }
+  
+  .btn1{
+    border-radius: 20px;
+    margin: 5px;
+    border: 0px;
+    padding: 0px;
+    width: 270px;
+    height: 70px;
+    font-size: 40px;
+    font-family: 'Londrina Solid', sans-serif;
+  }
+  
+  .logo {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding-top: 160px;
+  }
+  
+  main.container {
+    margin: -31px;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0px;
+    border: 0px;
+    height: 1080px;
+    background-image: url("https://cdn.discordapp.com/attachments/1147527897788186695/1174143146364514385/bg-new.png?");
+  }
+  
+  </style>
 
-<div>
-  <p id="sentence">{sentences[currentSentence]}</p>
-  <input type="text" bind:value={typedText} on:input={checkInput} on:keydown={startGame} />
-  <p id="result">{result}</p>
-  <p id="wpm">WPM: {wpm}</p>
-  <p id="timer">Time left: {Math.floor(timer / 60)}:{timer % 60}</p>
-  <button on:click={startGame}>Start</button>
-</div>
+<main class="container">
+    <header class="logo">
+        <img src="https://cdn.discordapp.com/attachments/1174150144204230656/1174176221010088087/output-onlinegiftools_4.gif?ex=6566a3d2&is=65542ed2&hm=db80b2cab1fbffa0aa9b87fe6925654d150d0d35c722012ae2498e2aa0978357&" alt="logo" width="400" height="400">
+    </header>
+        
+    <!--  Botões Menu  -->
+    <div class="button">
+        <a href="../Game"><button class="btn1">PLAY</button></a>
+        <a href="../About" ><button class="btn1">ABOUT</button></a>
+        <a href="../Instruction" ><button class="btn1">HELP</button></a>
+    </div>
+</main>
