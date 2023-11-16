@@ -6,7 +6,7 @@
   let typedText = "";         //armazena o texto digitado pelo user
   let result = "";            //armazena a mensagem de resultado final do jogo
   let wpm = 0;                //palavras por minuto digitada
-  let timer = 90;             //contador regressivo
+  let timer = 45;             //contador regressivo
   let gameRunning = false;    //se o jogo está em fucionamento
   let markedSentence = [];    //array que armazena cada letra digitada, e a proxima letra a ser digitada
 
@@ -41,7 +41,7 @@
   function startGame() {                   //inicia o jogo
     if (!gameRunning) {
       setNewSentence();
-      timer = 90;
+      timer = 45;
       gameRunning = true;
     }
   }
@@ -51,7 +51,7 @@
       gameRunning = false;
       typedText = "";
       result = `Congratulations, your WPM is: ${wpm}`;
-      timer = 90;
+      timer = 45;
     }
   }
 
@@ -72,7 +72,7 @@
   function checkInput() {               // caso o usuario finalize um texto corretamente ele puxa outro texto
     if (gameRunning) {
       const characters = typedText.replace(/\s/g, "").length;
-      const elapsedTime = (90 - timer) / 60;
+      const elapsedTime = (45 - timer) / 60;
       wpm = Math.round((characters / 5) / elapsedTime);
 
       updateMarkedSentence();                  // chamada da função do marcador 
@@ -89,11 +89,6 @@
       }
     }
   }
-  /* each Itera sobre cada caractere na sentença marcada, aplicando estilos diferentes com base na correção e status de 
-  digitação.
-o campo de entrada vincula o valor digitado a typedText, ela chama o checkInput.
-o result chama o endGame e demonstra o wpm do user
-botão é só o start*/
 </script>
 
 <style>
@@ -218,6 +213,12 @@ botão é só o start*/
     color: rgb(255, 123, 0)
   }
 </style>
+
+<!--each Itera sobre cada caractere na sentença marcada, aplicando estilos diferentes com base na correção e status de 
+digitação.
+o campo de entrada vincula o valor digitado a typedText, ela chama o checkInput.
+o result chama o endGame e demonstra o wpm do user
+botão é só o start -->
 
 <main>
   <div class="game">

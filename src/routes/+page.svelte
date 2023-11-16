@@ -11,7 +11,7 @@
     padding: 0px;
     overflow: hidden;
   }
-  
+
   .button {
     display: flex;
     flex-direction: column;
@@ -66,7 +66,10 @@
     <!--  Botões Menu  -->
     <div class="button">
         <a href="../Game"><button class="btn1">PLAY</button></a>
+        <a href="../Instruction" ><button class="btn1">HOW TO PLAY</button></a>
+        <a href="../History" ><button class="btn1">HISTORY</button></a>
         <a href="../About" ><button class="btn1">ABOUT</button></a>
-        <a href="../Instruction" ><button class="btn1">HELP</button></a>
+
+
     </div>
 </main>
