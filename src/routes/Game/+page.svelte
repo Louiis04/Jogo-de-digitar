@@ -2,18 +2,18 @@
   import { onMount } from "svelte";
   import { sentences } from "../../components/text";
 
-  let currentSentence = 0;
-  let typedText = "";
-  let result = "";
-  let wpm = 0;
-  let timer = 90;
-  let gameRunning = false;
-  let markedSentence = [];
+  let currentSentence = 0;    //acompanha o texto atual digitado
+  let typedText = "";         //armazena o texto digitado pelo user
+  let result = "";            //armazena a mensagem de resultado final do jogo
+  let wpm = 0;                //palavras por minuto digitada
+  let timer = 90;             //contador regressivo
+  let gameRunning = false;    //se o jogo está em fucionamento
+  let markedSentence = [];    //array que armazena cada letra digitada, e a proxima letra a ser digitada
 
   onMount(() => {
-    setNewSentence();
+    setNewSentence();     //inicia o primeiro texto
 
-    const timerInterval = setInterval(() => {
+    const timerInterval = setInterval(() => {       //caso o tempo chegue a zero a função fim de jogo é chamada
       timer--;
       if (timer <= 0) {
         clearInterval(timerInterval);
@@ -22,7 +22,7 @@
     }, 1000);
   });
 
-  function randomizeSentence() {
+  function randomizeSentence() {        // randomiza o texto que vai aparecer
     let randomIndex;
     do {
       randomIndex = Math.floor(Math.random() * sentences.length);
@@ -30,7 +30,7 @@
     return randomIndex;
   }
 
-  function setNewSentence() {
+  function setNewSentence() {                   // caso o usuario termine o texto ele puxa outro texto
     currentSentence = randomizeSentence();
     typedText = "";
     result = "";
@@ -38,7 +38,7 @@
     updateMarkedSentence();
   }
 
-  function startGame() {
+  function startGame() {                   //inicia o jogo
     if (!gameRunning) {
       setNewSentence();
       timer = 90;
@@ -46,7 +46,7 @@
     }
   }
 
-  function endGame(wpm) {
+  function endGame(wpm) {                  //finaliza o jogo
     if (gameRunning) {
       gameRunning = false;
       typedText = "";
@@ -55,7 +55,7 @@
     }
   }
 
-  function updateMarkedSentence() {
+  function updateMarkedSentence() {                           //atualiza o array "markedsentece"
     const sentenceArray = sentences[currentSentence].split('');
     const typedArray = typedText.split('');
 
@@ -69,13 +69,13 @@
     });
   }
 
-  function checkInput() {
+  function checkInput() {               // caso o usuario finalize um texto corretamente ele puxa outro texto
     if (gameRunning) {
       const characters = typedText.replace(/\s/g, "").length;
       const elapsedTime = (90 - timer) / 60;
       wpm = Math.round((characters / 5) / elapsedTime);
 
-      updateMarkedSentence();
+      updateMarkedSentence();                  // chamada da função do marcador 
 
       if (sentences[currentSentence].startsWith(typedText)) {
         if (sentences[currentSentence] === typedText) {
@@ -89,6 +89,11 @@
       }
     }
   }
+  /* each Itera sobre cada caractere na sentença marcada, aplicando estilos diferentes com base na correção e status de 
+  digitação.
+o campo de entrada vincula o valor digitado a typedText, ela chama o checkInput.
+o result chama o endGame e demonstra o wpm do user
+botão é só o start*/
 </script>
 
 <style>
@@ -216,8 +221,8 @@
 
 <main>
   <div class="game">
-    <p class="sentence">
-      {#each markedSentence as { char, correct, notTyped, nextToType }}
+    <p class="sentence">       
+      {#each markedSentence as { char, correct, notTyped, nextToType }}  
         <span
           class:correct={correct}
           class:incorrect={!correct && !notTyped}
@@ -228,7 +233,7 @@
     </p>
 
     <div class="dg-imput">
-      <input type="text" bind:value={typedText} on:input={checkInput} on:keydown={startGame} />
+      <input type="text" bind:value={typedText} on:input={checkInput} />
     </div>
 
     <div class="result-game">
@@ -243,3 +248,4 @@
     </div>
   </div>
 </main>
+
