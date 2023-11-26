@@ -1,4 +1,6 @@
-<script></script>
+<script>
+    import instructionicon from '../../img/instruction.png'
+</script>
 
 <style>
 
@@ -36,7 +38,7 @@
 
 <main>
     <h2>.1</h2>
-    <div class="img-tuto"><img src="https://cdn.discordapp.com/attachments/1169647948615917578/1174555105404653719/tutorial-anti-burro.png?ex=656804af&is=65558faf&hm=24ed12a723b66187d69bfee1b09f3c63ca0223f458bd8213682c361251332f80&" alt=""></div>
+    <div class="img-tuto"><img src={instructionicon} alt=""></div>
     <div class="button">
         <a href="/"><button style="cursor: pointer;" class="btn1">BACK</button></a>
     </div>
