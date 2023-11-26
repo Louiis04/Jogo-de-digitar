@@ -1,28 +1,15 @@
 <script>
-  import { onMount } from "svelte";
   import { sentences } from "../../components/text";
 
-  let currentSentence = 0;    //acompanha o texto atual digitado
-  let typedText = "";         //armazena o texto digitado pelo user
-  let result = "";            //armazena a mensagem de resultado final do jogo
-  let wpm = 0;                //palavras por minuto digitada
-  let timer = 45;             //contador regressivo
-  let gameRunning = false;    //se o jogo está em fucionamento
-  let markedSentence = [];    //array que armazena cada letra digitada, e a proxima letra a ser digitada
+  let currentSentence = 0;
+  let typedText = "";
+  let result = "";
+  let charactersPerMinute = 0;
+  let timer = 45;
+  let gameRunning = false;
+  let markedSentence = [];
 
-  onMount(() => {
-    setNewSentence();     //inicia o primeiro texto
-
-    const timerInterval = setInterval(() => {       //caso o tempo chegue a zero a função fim de jogo é chamada
-      timer--;
-      if (timer <= 0) {
-        clearInterval(timerInterval);
-        endGame(wpm);
-      }
-    }, 1000);
-  });
-
-  function randomizeSentence() {        // randomiza o texto que vai aparecer
+  function randomizeSentence() {
     let randomIndex;
     do {
       randomIndex = Math.floor(Math.random() * sentences.length);
@@ -30,32 +17,40 @@
     return randomIndex;
   }
 
-  function setNewSentence() {                   // caso o usuario termine o texto ele puxa outro texto
+  function setNewSentence() {
     currentSentence = randomizeSentence();
     typedText = "";
     result = "";
-    wpm = 0;
+    charactersPerMinute = 0;
     updateMarkedSentence();
   }
 
-  function startGame() {                   //inicia o jogo
+  function startGame() {
     if (!gameRunning) {
       setNewSentence();
       timer = 45;
       gameRunning = true;
+
+      const timerInterval = setInterval(() => {
+        timer--;
+        if (timer <= 0) {
+          clearInterval(timerInterval);
+          endGame(charactersPerMinute);
+        }
+      }, 1000);
     }
   }
 
-  function endGame(wpm) {                  //finaliza o jogo
+  function endGame(charactersPerMinute) {
     if (gameRunning) {
       gameRunning = false;
       typedText = "";
-      result = `Congratulations, your WPM is: ${wpm}`;
+      result = `Congratulations, your CPM is: ${charactersPerMinute}`;
       timer = 45;
     }
   }
 
-  function updateMarkedSentence() {                           //atualiza o array "markedsentece"
+  function updateMarkedSentence() {
     const sentenceArray = sentences[currentSentence].split('');
     const typedArray = typedText.split('');
 
@@ -69,13 +64,13 @@
     });
   }
 
-  function checkInput() {               // caso o usuario finalize um texto corretamente ele puxa outro texto
+  function checkInput() {
     if (gameRunning) {
       const characters = typedText.replace(/\s/g, "").length;
       const elapsedTime = (45 - timer) / 60;
-      wpm = Math.round((characters / 5) / elapsedTime);
+      charactersPerMinute = Math.round((characters) / elapsedTime);
 
-      updateMarkedSentence();                  // chamada da função do marcador 
+      updateMarkedSentence();
 
       if (sentences[currentSentence].startsWith(typedText)) {
         if (sentences[currentSentence] === typedText) {
@@ -83,7 +78,7 @@
           if (currentSentence < sentences.length) {
             setNewSentence();
           } else {
-            endGame(wpm);
+            endGame(charactersPerMinute);
           }
         }
       }
@@ -185,6 +180,13 @@
     
   }
 
+  .button-game-back{
+
+    display: flex;
+    margin: 20px;
+    margin-bottom: 500px;
+  }
+
   .btn1 {
     border-radius: 20px;
     margin: 5px;
@@ -196,7 +198,6 @@
     font-family: 'Londrina Solid', sans-serif;
     cursor: pointer;
   }
-
   .correct {
     color: lightgreen;
   }
@@ -239,14 +240,21 @@ botão é só o start -->
 
     <div class="result-game">
       <p id="result">{result}</p>
-      <p id="wpm">WPM: {wpm}</p>
+      <p id="charactersPerMinute">CPM: {charactersPerMinute}</p>
       <p id="timer">Time left: {Math.floor(timer / 60)}:{timer % 60}</p>
     </div>
 
     <div class="button-game">
       <button class="btn1" on:click={startGame}>START</button>
-      <a href="/"><button class="btn1">BACK</button></a>
     </div>
+  </div>
+
+  <div class="button-game-back">
+    <a href="/" class="btn2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px" viewBox="0 0 24 24" data-name="Layer 1"><path
+        d="M20.3284 11.0001V13.0001L7.50011 13.0001L10.7426 16.2426L9.32842 17.6568L3.67157 12L9.32842 6.34314L10.7426 7.75735L7.49988 11.0001L20.3284 11.0001Z"
+        fill="white"/></svg>
+      </a>
   </div>
 </main>
 
