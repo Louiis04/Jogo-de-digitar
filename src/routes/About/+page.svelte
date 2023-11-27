@@ -16,8 +16,7 @@
   src: url(/src/font/BenguiatStd-Book.otf);
 }
 
-.devs
-{
+.devs {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +25,6 @@
 }
 
 .card {
-
     width: 250px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -83,6 +81,7 @@
     {
         width: 30px;
     }
+
   .btn1{
     border-radius: 20px;
     margin: 5px;
@@ -155,7 +154,7 @@
     <img src={kaueimg} alt="Membro3" class="grayscale">
     <div class="card-content">
         <h2>Kauê Luí</h2>
-        <p>COLLABORATOR</p>
+        <p>DESIGNER</p>
         <a href="#" class="social-link"><img id="git" src={giticon} alt=""><img style="margin-left: 10px;" id="git" src={linkedinicon} alt=""></a>
     </div>
 </div>

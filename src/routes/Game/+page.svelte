@@ -89,7 +89,7 @@
 <style>
   :global(html) {
     overflow: hidden;
-    background-image: url("https://cdn.discordapp.com/attachments/1147527897788186695/1174171539860631592/Main.png?ex=65669f76&is=65542a76&hm=5fe2e6328fc1e7fac22e1a108a95846c277628ffa9affbce19b894e159e1e697&");
+    background-image: url("../../img/bg-gray.png");
     background-repeat: no-repeat;
     margin: -31px;
     background-position: center;
@@ -180,11 +180,15 @@
     
   }
 
-  .button-game-back{
-
+  .button-game-back {
     display: flex;
-    margin: 20px;
-    margin-bottom: 500px;
+    
+  }
+
+  .btn2{
+    margin-top: 60px;
+    margin-left: 60px;
+    margin-bottom: -70px;
   }
 
   .btn1 {
@@ -198,6 +202,22 @@
     font-family: 'Londrina Solid', sans-serif;
     cursor: pointer;
   }
+
+  .btn1-start {
+    /* background: linear-gradient(60deg, #000000, #049904, #016105, #000000);
+    color: white; */
+    
+    border-radius: 20px;
+    margin: 5px;
+    border: 0px;
+    padding: 0px;
+    width: 270px;
+    height: 70px;
+    font-size: 40px;
+    font-family: 'Londrina Solid', sans-serif;
+    cursor: pointer;
+  }
+
   .correct {
     color: lightgreen;
   }
@@ -222,6 +242,15 @@ o result chama o endGame e demonstra o wpm do user
 botão é só o start -->
 
 <main>
+  
+  <div class="button-game-back">
+    <a href="/" class="btn2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px" viewBox="0 0 24 24" data-name="Layer 1"><path
+        d="M20.3284 11.0001V13.0001L7.50011 13.0001L10.7426 16.2426L9.32842 17.6568L3.67157 12L9.32842 6.34314L10.7426 7.75735L7.49988 11.0001L20.3284 11.0001Z"
+        fill="white"/></svg>
+      </a>
+  </div>
+
   <div class="game">
     <p class="sentence">       
       {#each markedSentence as { char, correct, notTyped, nextToType }}  
@@ -245,16 +274,9 @@ botão é só o start -->
     </div>
 
     <div class="button-game">
-      <button class="btn1" on:click={startGame}>START</button>
+      <button class="btn1-start" on:click={startGame}>START</button>
     </div>
   </div>
 
-  <div class="button-game-back">
-    <a href="/" class="btn2">
-      <svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px" viewBox="0 0 24 24" data-name="Layer 1"><path
-        d="M20.3284 11.0001V13.0001L7.50011 13.0001L10.7426 16.2426L9.32842 17.6568L3.67157 12L9.32842 6.34314L10.7426 7.75735L7.49988 11.0001L20.3284 11.0001Z"
-        fill="white"/></svg>
-      </a>
-  </div>
 </main>
 

@@ -12,8 +12,8 @@ main.container {
     height: 1080px;
     background-image: url("https://cdn.discordapp.com/attachments/1147527897788186695/1174143146364514385/bg-new.png?");
   }
-.button 
-{
+
+  .button {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -22,7 +22,8 @@ main.container {
     align-content: stretch;
     padding: 20px;
 }
-.btn1{
+
+    .btn1 {
     border-radius: 20px;
     margin: 5px;
     border: 0px;
@@ -33,19 +34,19 @@ main.container {
     font-family: 'Londrina Solid', sans-serif;
 }
 
-
-    div.textInstruction{
-        margin-left:650px;
-        margin-top: 100px;
-        border: 1px solid;
-        display: inline-flex;
-        padding: 50px;
-        text-align: center;
-        width: 500px;
-        height: 600px;
-        border-radius: 10px;
-        color: rgb(255, 251, 0);
-    }
+    .textInstruction{
+    margin-left:698px;
+    margin-top: 100px;
+    border: 1px solid;
+    display: inline-flex;
+    padding: 50px;
+    text-align: center;
+    width: 500px;
+    height: 600px;
+    border-radius: 10px;
+    color: rgb(255, 251, 0);
+    
+}
 
 
 
