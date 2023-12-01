@@ -9,6 +9,13 @@
   let gameRunning = false;
   let markedSentence = [];
 
+  let difficulty = "Normal";
+  const difficultyTimes = {
+    Easy: 60,
+    Normal: 45,
+    Hard: 30,
+  };
+
   function randomizeSentence() {
     let randomIndex;
     do {
@@ -28,7 +35,7 @@
   function startGame() {
     if (!gameRunning) {
       setNewSentence();
-      timer = 45;
+      timer = difficultyTimes[difficulty];
       gameRunning = true;
 
       const timerInterval = setInterval(() => {
@@ -41,12 +48,12 @@
     }
   }
 
-  function endGame(charactersPerMinute) {
+  function endGame() {
     if (gameRunning) {
       gameRunning = false;
       typedText = "";
       result = `Congratulations, your CPM is: ${charactersPerMinute}`;
-      timer = 45;
+      timer = difficultyTimes[difficulty];
     }
   }
 
@@ -67,7 +74,7 @@
   function checkInput() {
     if (gameRunning) {
       const characters = typedText.replace(/\s/g, "").length;
-      const elapsedTime = (45 - timer) / 60;
+      const elapsedTime = (difficultyTimes[difficulty] - timer) / 60;
       charactersPerMinute = Math.round((characters) / elapsedTime);
 
       updateMarkedSentence();
@@ -78,13 +85,14 @@
           if (currentSentence < sentences.length) {
             setNewSentence();
           } else {
-            endGame(charactersPerMinute);
+            endGame();
           }
         }
       }
     }
   }
 </script>
+
 
 <style>
   :global(html) {
@@ -276,6 +284,11 @@ botão é só o start -->
     <div class="button-game">
       <button class="btn1-start" on:click={startGame}>START</button>
     </div>
+    <select bind:value={difficulty}>
+      <option value="Easy">Easy</option>
+      <option value="Normal">Normal</option>
+      <option value="Hard">Hard</option>
+    </select>
   </div>
 
 </main>
