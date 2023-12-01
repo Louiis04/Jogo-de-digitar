@@ -28,7 +28,7 @@
     width: 250px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    margin: 36px;
+    margin: 25px;
     margin-top: 100px;
     overflow: hidden;
     display: inline-flex;

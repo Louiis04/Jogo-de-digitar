@@ -19,11 +19,13 @@
     align-items: center;
     align-content: stretch;
     padding: 20px;
+    cursor: pointer;
   }
   
   .btn-back{
     margin-top: 50px;
     margin-left: 20px;
+    cursor: pointer;
   
   }
   
@@ -36,6 +38,7 @@
     height: 70px;
     font-size: 40px;
     font-family: 'Londrina Solid', sans-serif;
+    cursor: pointer;
   }
   
   .logo {
