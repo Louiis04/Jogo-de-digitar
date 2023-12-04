@@ -48,11 +48,25 @@ main.container {
     
 }
 
+.button-game {
+    display : flex;
+    flex-direction : row;
+    justify-content: center;
+    margin-left: 9px;
+    margin-top: 20px;
+  }
 
+  .btn2 {
+    margin-top: 30px;
+    margin-left: 60px;
+    margin-bottom: -70px;
+  }
+
+  .button-game-back {
+    display: flex;
+  }
 
 </style>
-
-
 
 <main class="container">
     <div class="textInstruction">
@@ -75,6 +89,9 @@ main.container {
             
         </p>
     </div>
+    
+    
+    
     <div class="button">
         <a href="/"><button style="cursor: pointer;" class="btn1">BACK</button></a>
     </div>

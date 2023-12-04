@@ -116,9 +116,25 @@
   filter: grayscale(0);
 }
 
+.button-game {
+    display : flex;
+    flex-direction : row;
+    justify-content: center;
+    margin-left: 9px;
+    margin-top: 20px;
+  }
+
+  .btn2 {
+    margin-top: 30px;
+    margin-left: 60px;
+    margin-bottom: -70px;
+  }
+
+  .button-game-back {
+    display: flex;
+  }
+  
 </style>
-
-
 
 <!-- <h1>DEVELOPERS</h1> -->
 <div class="devs">

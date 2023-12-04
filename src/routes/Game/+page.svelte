@@ -131,7 +131,7 @@
     height: 50px;
     line-height: normal;
     color: #282828;
-    display: block;
+    display: flex;
     width: 83%;
     user-select: auto;
     font-size: 16px;
@@ -160,6 +160,15 @@
     color: #fff;
   }
 
+  #difficulty {
+    color: #fff;
+  }
+
+  p{
+    margin: 15px;
+  }
+
+
   .button-game {
     display : flex;
     flex-direction : row;
@@ -174,7 +183,8 @@
 
   .button-game-restart {
     margin-left: 1735px;
-    margin-bottom: -70px;
+    margin-bottom: -80px;
+    margin-top: 20px;
   }
 
   .btn2 {
@@ -231,6 +241,7 @@
     height: 220px;
     width: 420px;
     filter: blur(0.3px);
+    padding: auto;
   }
 
   .feedback {
@@ -254,7 +265,7 @@
   }
 
   .notTyped {
-    color: black;
+    color: #808080;
   }
 
   .nextToType {
@@ -279,7 +290,7 @@ botão é só o start -->
   </div>
 
   <div class="button-game-restart">
-    <a href='/' class="btn2">
+    <a class="btn2" on:click={startGame}>
       <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45" height="45" viewBox="0,0,256,256">
         <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(4,4)"><path d="M58,32c0,14.359 -11.641,26 -26,26c-14.359,0 -26,-11.641 -26,-26c0,-14.359 11.641,-26 26,-26c14.359,0 26,11.641 26,26zM45.581,23.785c-1.845,-2.961 -4.678,-5.273 -7.941,-6.478l-1.404,3.746c2.416,0.931 4.501,2.685 5.835,4.888c1.348,2.2 1.873,4.846 1.57,7.394c-0.305,2.544 -1.501,4.95 -3.319,6.747c-1.814,1.799 -4.221,2.973 -6.745,3.261c-2.532,0.311 -5.136,-0.242 -7.295,-1.55c-2.165,-1.297 -3.882,-3.329 -4.769,-5.669c-0.903,-2.326 -0.991,-4.98 -0.245,-7.35c0.48,-1.56 1.321,-3.001 2.415,-4.212l3.145,3.493l2.75,-12.047l-12.281,1.462l3.057,3.395c-1.732,1.844 -3.042,4.08 -3.751,6.511c-1.017,3.433 -0.833,7.176 0.502,10.485c1.318,3.313 3.775,6.125 6.837,7.899c3.059,1.793 6.717,2.5 10.2,2.024c3.501,-0.449 6.815,-2.125 9.27,-4.632c2.466,-2.498 4.068,-5.84 4.438,-9.33c0.376,-3.469 -0.404,-7.08 -2.269,-10.037z"></path></g></g>
         </svg>
@@ -299,7 +310,7 @@ botão é só o start -->
     </p>
 
     <div class="dg-imput">
-      <input type="text" bind:value={typedText} on:input={checkInput} />
+      <input type="text" bind:value={typedText} on:input={checkInput} placeholder="Enter your text here..." />
     </div>
 
    <div class="feedback">
@@ -312,6 +323,7 @@ botão é só o start -->
       <p id="result">{result}</p>
       <p id="charactersPerMinute">CPM: {charactersPerMinute}</p>
       <p id="timer">Time left: {Math.floor(timer / 60)}:{timer % 60}</p>
+      <p id="difficulty">[{difficulty}]</p>
     </div>
     
   </div>
