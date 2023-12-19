@@ -236,6 +236,7 @@
     border-radius: 20px;
     margin: 20px;
     transition: linear 100ms;
+    background-color: #ffffffd1;
 
   }
   .btn1-start:hover{
