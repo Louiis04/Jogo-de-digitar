@@ -1,7 +1,7 @@
 <script>
     import joseimg from '../../img/vinicius.jpg';
     import luisimg from '../../img/luis.jpg';
-    import victorimg from '../../img/Victor.jpeg';
+    import victorimg from '../../img/Victor.jpg';
     import kaueimg from '../../img/kaue.jpg';
     import letimg from '../../img/let.png';
     import isaimg from '../../img/isa.png';
@@ -11,42 +11,17 @@
 <style>
 
 
-
 @font-face {
   font-family: Poppins;
   src: url(/src/font/BenguiatStd-Book.otf);
 }
 
-main{
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    background-image: url("../../img/space-game.gif");
-  }
-  header
-  {
-    width: 100vh;
-    padding: 15px;
-    position: absolute;
-  }
-  .back 
-{
-width: 55px;
-height: 55px;
-transition: 100ms linear;
-}
-
-.back:hover
-{
-width: 60px;
-height: 60px;
-}
 .devs {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    
+    margin-top: 8vw;
 }
 
 .card {
@@ -59,7 +34,7 @@ height: 60px;
     display: inline-flex;
     flex-direction: column;
     position: relative;
-
+    
 }
 
 .card img {
@@ -68,7 +43,6 @@ height: 60px;
     object-fit: cover;
     cursor: auto;
 }
-
 
 .card-content {
     padding: 16px;
@@ -107,6 +81,17 @@ height: 60px;
     {
         width: 30px;
     }
+
+  .btn1{
+    border-radius: 20px;
+    margin: 5px;
+    border: 0px;
+    padding: 0px;
+    width: 270px;
+    height: 70px;
+    font-size: 40px;
+    font-family: 'Londrina Solid', sans-serif;
+  }
   
   div.result-game {
     display: flow-root;
@@ -120,25 +105,37 @@ height: 60px;
     width: 30%;
   }
 
-    .grayscale{
-    border-radius: 8px;
-    filter: grayscale(1);
-    transition: .5s linear;
-    }
+  .grayscale{
+  cursor: pointer;
+  border-radius: 8px;
+  filter: grayscale(1);
+  transition: .3s linear;
+}
 
-    .grayscale:hover{
-    filter: grayscale(0);
-    }
+.grayscale:hover{
+  filter: grayscale(0);
+}
 
+.button-game {
+    display : flex;
+    flex-direction : row;
+    justify-content: center;
+    margin-left: 9px;
+    margin-top: 20px;
+  }
+
+  .btn2 {
+    margin-top: 30px;
+    margin-left: 60px;
+    margin-bottom: -70px;
+  }
+
+  .button-game-back {
+    display: flex;
+  }
+  
 </style>
 
-<main>
-    <header>
-<a href="/" class="btn2">
-    <svg class="back" xmlns="http://www.w3.org/2000/svg" width="60px" height="60px" viewBox="0 0 24 24" data-name="Layer 1"><path
-      d="M20.3284 11.0001V13.0001L7.50011 13.0001L10.7426 16.2426L9.32842 17.6568L3.67157 12L9.32842 6.34314L10.7426 7.75735L7.49988 11.0001L20.3284 11.0001Z"
-      fill="white"/></svg></a>
-    </header>
 <!-- <h1>DEVELOPERS</h1> -->
 <div class="devs">
     <!-- <h1>DEVELOPERS</h1> -->
@@ -161,7 +158,7 @@ height: 60px;
 </div>
 
 <div class="card">
-    <img src={victorimg} alt="Membro3" class="grayscale" style="max-height: 375px;">
+    <img src={victorimg} alt="Membro3" class="grayscale">
     <div class="card-content">
         <h2>Victor Gustavo</h2>
         <p>FULLSTACK DEVELOPER</p>
@@ -196,4 +193,6 @@ height: 60px;
     </div>
 </div>
 </div>
-</main>
+<div class="button">
+    <a href="/"><button style="cursor: pointer;" class="btn1">BACK</button></a>
+</div>
