@@ -155,11 +155,6 @@
     padding: 5px;
   }
 
-  #wpm {
-    color: #fff;
-    margin: 0px;
-  }
-
   #timer {
     color: #fff;
   }
@@ -197,17 +192,7 @@
     margin-bottom: -70px;
   }
 
-  .btn1 {
-    border-radius: 20px;
-    margin: 5px;
-    border: 0px;
-    padding: 0px;
-    width: 270px;
-    height: 70px;
-    font-size: 40px;
-    font-family: 'Londrina Solid', sans-serif;
-    cursor: pointer;
-  }
+
 
   .btn1-start {
     /* background: linear-gradient(60deg, #000000, #049904, #016105, #000000);
@@ -273,7 +258,8 @@
   }
 
   .nextToType {
-    color: rgb(255, 123, 0)
+    color: rgb(255, 123, 0);
+    text-decoration: underline;
   }
 </style>
 

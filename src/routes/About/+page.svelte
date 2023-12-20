@@ -1,7 +1,7 @@
 <script>
     import joseimg from '../../img/vinicius.jpg';
     import luisimg from '../../img/luis.jpg';
-    import victorimg from '../../img/Victor.jpg';
+    import victorimg from '../../img/Victor.jpeg';
     import kaueimg from '../../img/kaue.jpg';
     import letimg from '../../img/let.png';
     import isaimg from '../../img/isa.png';
@@ -93,17 +93,6 @@
     font-family: 'Londrina Solid', sans-serif;
   }
   
-  div.result-game {
-    display: flow-root;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    font-size: 30px;
-    background-color: #fff;
-    text-align: center;
-    border-radius: 40px;
-    width: 30%;
-  }
 
   .grayscale{
   cursor: pointer;
@@ -116,24 +105,8 @@
   filter: grayscale(0);
 }
 
-.button-game {
-    display : flex;
-    flex-direction : row;
-    justify-content: center;
-    margin-left: 9px;
-    margin-top: 20px;
-  }
 
-  .btn2 {
-    margin-top: 30px;
-    margin-left: 60px;
-    margin-bottom: -70px;
-  }
 
-  .button-game-back {
-    display: flex;
-  }
-  
 </style>
 
 <!-- <h1>DEVELOPERS</h1> -->
@@ -144,7 +117,7 @@
     <div class="card-content">
         <h2>José Vinícius</h2>
         <p>FRONTEND DEVELOPER</p>
-        <a href="#" class="social-link"><img id="git" src={giticon} alt=""><img style="margin-left: 10px;" id="git" src={linkedinicon} alt=""></a>
+        <a href="https://github.com/Vinnijds" class="social-link"><img id="git" src={giticon} alt=""><img style="margin-left: 10px;" id="git" src={linkedinicon} alt=""></a>
     </div>
 </div>
 
@@ -153,7 +126,7 @@
     <div class="card-content">
         <h2>Luís Eduardo</h2>
         <p>BACKEND DEVELOPER</p>
-        <a href="#" class="social-link"><img id="git" src={giticon} alt=""><img style="margin-left: 10px;" id="git" src={linkedinicon} alt=""></a>
+        <a href="https://github.com/Louiis04" class="social-link"><img id="git" src={giticon} alt=""><img style="margin-left: 10px;" id="git" src={linkedinicon} alt=""></a>
     </div>
 </div>
 
@@ -162,7 +135,7 @@
     <div class="card-content">
         <h2>Victor Gustavo</h2>
         <p>FULLSTACK DEVELOPER</p>
-        <a href="#" class="social-link"><img id="git" src={giticon} alt=""><img style="margin-left: 10px;" id="git" src={linkedinicon} alt=""></a>
+        <a href="https://github.com/victorgustavodev" class="social-link"><img id="git" src={giticon} alt=""><img style="margin-left: 10px;" id="git" src={linkedinicon} alt=""></a>
     </div>
 </div>
 
@@ -171,7 +144,7 @@
     <div class="card-content">
         <h2>Kauê Luí</h2>
         <p>DESIGNER</p>
-        <a href="#" class="social-link"><img id="git" src={giticon} alt=""><img style="margin-left: 10px;" id="git" src={linkedinicon} alt=""></a>
+        <a href="https://github.com/KaueLui" class="social-link"><img id="git" src={giticon} alt=""><img style="margin-left: 10px;" id="git" src={linkedinicon} alt=""></a>
     </div>
 </div>
 
@@ -180,7 +153,7 @@
     <div class="card-content">
         <h2>Maria Leticia</h2>
         <p>COLLABORATOR</p>
-        <a href="#" class="social-link"><img id="git" src={giticon} alt=""><img style="margin-left: 10px;" id="git" src={linkedinicon} alt=""></a>
+        <a href="https://github.com/KaueLui" class="social-link"><img id="git" src={giticon} alt=""><img style="margin-left: 10px;" id="git" src={linkedinicon} alt=""></a>
     </div>
 </div>
 
@@ -189,7 +162,7 @@
     <div class="card-content">
         <h2>Isabelly Arruda</h2>
         <p>COLLABORATOR</p>
-        <a href="#" class="social-link"><img id="git" src={giticon} alt=""><img style="margin-left: 10px;" id="git" src={linkedinicon} alt=""></a>
+        <a href="https://github.com/KaueLui" class="social-link"><img id="git" src={giticon} alt=""><img style="margin-left: 10px;" id="git" src={linkedinicon} alt=""></a>
     </div>
 </div>
 </div>

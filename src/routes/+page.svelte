@@ -22,12 +22,6 @@
     cursor: pointer;
   }
   
-  .btn-back{
-    margin-top: 50px;
-    margin-left: 20px;
-    cursor: pointer;
-  
-  }
   
   .btn1{
     border-radius: 20px;
@@ -69,7 +63,6 @@
     <div class="button">
         <a href="../Game"><button class="btn1">PLAY</button></a>
         <a href="../Instruction" ><button class="btn1">HOW TO PLAY</button></a>
-        <!-- <a href="../History" ><button class="btn1">HISTORY</button></a> -->
         <a href="../About" ><button class="btn1">ABOUT</button></a>
 
 
