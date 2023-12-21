@@ -22,6 +22,12 @@
     cursor: pointer;
   }
   
+  .btn-back{
+    margin-top: 50px;
+    margin-left: 20px;
+    cursor: pointer;
+  
+  }
   
   .btn1{
     border-radius: 20px;
